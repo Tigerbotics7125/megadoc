@@ -5,15 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@fontsource/inter':
-    specifier: ^5.0.17
-    version: 5.0.17
-  '@fontsource/inter-tight':
-    specifier: ^5.0.19
-    version: 5.0.19
-  '@fontsource/orbitron':
-    specifier: ^5.0.18
-    version: 5.0.18
   next:
     specifier: ^14.0.2
     version: 14.1.4(react-dom@18.2.0)(react@18.2.0)
@@ -66,18 +57,6 @@ packages:
 
   /@emotion/unitless@0.8.0:
     resolution: {integrity: sha512-VINS5vEYAscRl2ZUDiT3uMPlrFQupiKgHz5AA4bCH1miKBg4qtwkim1qPmJj/4WG6TreYMY111rEFsjupcOKHw==}
-    dev: false
-
-  /@fontsource/inter-tight@5.0.19:
-    resolution: {integrity: sha512-Jrw/1j0dSV5saqNObmmnIC68DndB1g/1Xmphk4bKDp6issrq4lwIArU3BfXgWNrNQE3Kkmmbh7XRAbHD9QbOHw==}
-    dev: false
-
-  /@fontsource/inter@5.0.17:
-    resolution: {integrity: sha512-2meBGx1kt7u5LwzGc5Sz5rka6ZDrydg6nT3x6Wkt310vHXUchIywrO8pooWMzZdHYcyFY/cv4lEpJZgMD94bCg==}
-    dev: false
-
-  /@fontsource/orbitron@5.0.18:
-    resolution: {integrity: sha512-wWBZbGQuMa9l2QnwZiPVDupkxQedNxhWlcrEUsCZL5U5apMyAg1JQZBJXn6vppwqSe5NR39l0IepfUGhr7h12A==}
     dev: false
 
   /@headlessui/react@1.7.10(react-dom@18.2.0)(react@18.2.0):
