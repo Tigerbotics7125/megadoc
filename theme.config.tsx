@@ -18,10 +18,11 @@ const config: DocsThemeConfig = {
     return (
       <>
         <link rel="icon" href="/favicon-32x32.png" />
-        <meta content={title || asPath !== '/' ? title + " - Tigerbotics Megadocs" : "Tigerbotics Megadocs"} property="og:title" />
-        <meta content="Tigerbotics Megadocs" property="og:description" />
+        <meta content={title} property="og:title" />
+        <meta property="og:type" content="website" />
         <meta content={"https://tigerbotics.aurorabotics.com" + asPath} property="og:url" />
-        <meta content="/favicon-512x512.png" property="og:image" />
+        <meta content="/Tigerbotics-flat.svg" property="og:image" />
+        <meta content="This website serves as a collection point for all information about Tigerbotics, whether it be our cooperative technical documentation base, our Open Alliance build logs, or simply pictures of our robot, you can find it here." property="og:description" />
         <meta content="#EE4B2B" data-react-helmet="true" name="theme-color" />
       </>
     );
