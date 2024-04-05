@@ -1,5 +1,37 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)"
+  "index": {
+    "title": "Home",
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "-- tech": {
+    "type": "separator",
+    "title": "Technical Documentation"
+  },
+  "build": "Build / Mechanical",
+  "electrical": "Electrical / Pneumatic",
+  "programming": "Programming / Software",
+  "-- resources": {
+    "type": "separator",
+    "title": "External Resources"
+  },
+  "tba-link": {
+    "title": "The Blue Alliance ↗",
+    "href": "https://www.thebluealliance.com/",
+    "newWindow": true
+  },
+  "-- members": {
+    "type": "separator",
+    "title": "Member Information"
+  },
+  "intro-to-doc-writing": "How to update or edit this website",
+  "team-calendar": "Team Calendar",
+  "-- sponsors": {
+    "type": "separator",
+    "title": "Sponsor Information"
+  },
+  "sponsor-info": "Become a sponsor 🎉",
+  "sponsors": "A Thank You to our Sponsors"
 }
