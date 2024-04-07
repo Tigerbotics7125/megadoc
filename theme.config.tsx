@@ -44,7 +44,14 @@ const config: DocsThemeConfig = {
   ),
   sidebar: {
     toggleButton: true,
-    defaultMenuCollapseLevel: 1
+    defaultMenuCollapseLevel: 1,
+    titleComponent({ title, route }) {
+      // Not implemented yet.
+      if (route === "#")
+        return <s>{title}</s>
+      else
+        return <>{title}</>
+    }
   },
   feedback: {
     content: "Give feedback for this page →"
