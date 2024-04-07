@@ -275,3 +275,39 @@ $ git config --global user.email johndoe@example.com
     ![source-control](/doc-tutorial/source-control.png)
 
     - You'll see a list of files which have been added, modified or deleted. When you hover over a file you can "stage" it by pressing the `+` button, or you can stage all files by clicking the `+` beside "changes".
+    - After you have staged your changes, add a commit message in the box above, something descriptive about your changes, such as "added x doc". After you do that, press the blue commit button.
+
+    ![stage-changes](/doc-tutorial/stage-changes.png)
+
+    - Once you have commited your changes, you can push your code (send it to github) by clicking on the three dots, then `Push`. If it prompts you to publish the branch, that just means github doesn't doesn't know of your branch yet, go ahead and publish it.
+
+    ![push](/doc-tutorial/push.png)
+    ![publish](/doc-tutorial/publish.png)
+
+    - After you push your code you should be able to see it on GitHub (here)[https://github.com/tigerbotics7125/website]. You can click the dropdown beside main to see all published branches. Your commited changes are available under your branch which you just published.
+
+    ![branches](/doc-tutorial/branches.png)
+
+### 7. Creating a pull request & previewing your changes
+    - We are finally nearing the end, where we can get your changes pulled onto the main branch (and published to the website).
+    - Navigate to the pull request tab on the repository on GitHub or you can click [this link](https://github.com/Tigerbotics7125/website/pulls).
+
+    ![pull-request](/doc-tutorial/pull-request.png)
+
+    - Click on the `New pull request` button, this will open a page which compares your changes, leave the base as main, but change compare to the branch you want to pull into main. This should pull up all of the changes you did on your branch.
+
+    ![pr-compare](/doc-tutorial/pr-compare.png)
+
+    - Click on the `Create pull request` button, this will prompt you for a title and description, fill these in reasonably, once you have done that, click `Create pull request`.
+
+    ![pr-create](/doc-tutorial/pr-create.png)
+
+    - After a minute or two, the vercel bot will comment on your pull request with a link to where you can preview your changes.
+
+    ![pr-preview](/doc-tutorial/pr-preview.png)
+
+    - If you decided you need to make more changes, and or you aren't actually ready for the pull request to be pulled into main, you should mark it as a draft, which you can do below the reviewers section.
+
+    ![pr-draft](/doc-tutorial/pr-draft.png)
+
+    - If you commit more changes to your branch,
