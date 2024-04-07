@@ -26,7 +26,12 @@
     "type": "separator",
     "title": "Member Information"
   },
-  "intro-to-doc-writing": "How to update or edit this website",
+  "intro-to-doc-writing": {
+    "title": "An Introduction to Writing Documentation",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
   "team-calendar": "Team Calendar",
   "-- sponsors": {
     "type": "separator",
