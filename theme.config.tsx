@@ -28,7 +28,7 @@ const config: DocsThemeConfig = {
         <meta name="twitter:card" content="summary_large_image"/>
         <meta content={"https://tigerbotics.aurorabotics.com" + asPath} property="og:url" />
         <meta name="twitter:image" content="/tigerbotics-hexagons.png"/>
-        <meta content="/favicon-512x512.png" property="og:image" />
+        <meta content="/tigerbotics-hexagons.png" property="og:image" />
         <meta content="Tigerbotic's collective knowledge database." property="og:description" />
         <meta content="#EE4B2B" data-react-helmet="true" name="theme-color" />
       </>
