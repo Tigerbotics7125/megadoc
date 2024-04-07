@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 import Image from 'next/image'
+import { title } from 'process'
 
 const config: DocsThemeConfig = {
   useNextSeoProps() {
@@ -9,6 +10,10 @@ const config: DocsThemeConfig = {
     if (asPath !== '/') {
       return {
         titleTemplate: '%s - Tigerbotics',
+      }
+    } else {
+      return {
+        title: "Tigerbotics"
       }
     }
   },
@@ -20,8 +25,9 @@ const config: DocsThemeConfig = {
         <link rel="icon" href="/favicon-32x32.png" />
         <meta content={title} property="og:title" />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image"/>
         <meta content={"https://tigerbotics.aurorabotics.com" + asPath} property="og:url" />
-        <meta name="twitter:image" content="/tigerbotics-hexagons.png"></meta>
+        <meta name="twitter:image" content="/tigerbotics-hexagons.png"/>
         <meta content="/favicon-512x512.png" property="og:image" />
         <meta content="Tigerbotic's collective knowledge database." property="og:description" />
         <meta content="#EE4B2B" data-react-helmet="true" name="theme-color" />
