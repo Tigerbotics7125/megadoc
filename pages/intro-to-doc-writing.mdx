@@ -310,4 +310,14 @@ $ git config --global user.email johndoe@example.com
 
     ![pr-draft](/doc-tutorial/pr-draft.png)
 
-    - If you commit more changes to your branch,
+    - If you commit more changes to your branch (and push them), they will automatically be added to the pull request, where the vercel bot will build the website again, and you can preview your changes. This is your alternative if you cannot test the website locally on your computer.
+
+    ![pr-more-commits](/doc-tutorial/pr-more-commits.png)
+
+### 8. Merging your pull request
+    - In order to merge your pull request onto main (and get published on the website) it must pass the following checks.
+        1. A review from an admin (either Jeff or Stover)
+        2. The vercel build to not fail (why would we publish a broken website?)
+        3. Any comments from the vercel preview to be resolved. (ensuring there is no debate on the page before it is published)
+    - Once your pull request has passed all the requirements, for the most recent commit, it is eligable to be merged into main.
+    - Once you merge your pull request, all of your hard work will be complete and will be public on the website! Congratulations!
