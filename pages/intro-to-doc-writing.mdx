@@ -1,3 +1,323 @@
+import { Callout, FileTree } from 'nextra/components'
+
 # An Introduction to Writing Documentation
 
-blah blah blahs
+## Who can write or update this website?
+
+Any Tigerbotics team member is able to edit this website,
+continue reading the instructions on this page to find out how.
+
+## What do I need?
+
+First things first you need the following:
+
+1. A [GitHub](https://github.com) account.
+    - Follow [this guide](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) to setup your account.
+    - This is used to host the files for the website.
+2. You need to install [git](https://git-scm.com/downloads).
+    - [This YouTube video](https://youtu.be/lt9oDAvpG4I?t=47&si=M7gvBus8g-FXsEFT) should show you how to install git.
+    <Callout type="info">
+        Note: If you do not have administrative privledges on your computer, you will need to use the *portable* version of git.
+    </Callout>
+    - This is used to manage the changes of files.
+3. You need to download [Visual Studio Code](https://code.visualstudio.com/)
+    - Visual Studio Code does not require actually *installing* and should work on any computer.
+    - This is the application you'll use to actually edit documents in.
+4. *If you have administrative privledges on your computer you should also:*
+    1. Download and install [Node.js](https://nodejs.org/en)
+    2. Download and install [pnpm](https://pnpm.io/installation)
+    - These will let you run the website on your computer so you can see what you are writing looks like before uploading anything.
+
+At this point, it would be a good idea to ***restart your computer*** to ensure everything is happy.
+
+## Where do my files go? What files do I need?
+
+Here is an example file tree to help you understand where your files go.
+
+<Callout type="info">You can interact with the filetree to expand or collapse folders. </Callout>
+
+<FileTree>
+    <FileTree.Folder name="project" defaultOpen>
+
+        <FileTree.Folder name="pages" defaultOpen>
+            <FileTree.File name="_meta.json" />
+            <FileTree.File name="index.mdx" />
+            <FileTree.File name="some-other-page.mdx"/>
+
+            <FileTree.Folder name="some-collection">
+                <FileTree.File name="_meta.json"/>
+                <FileTree.File name="part-of-the-collection.mdx"/>
+                <FileTree.File name="another-part.mdx"/>
+            </FileTree.Folder>
+
+            <FileTree.Folder name="another-collection">
+                <FileTree.File name="_meta.json"/>
+                <FileTree.File name="a-platypus.mdx"/>
+                <FileTree.File name="perry-the-platypus.mdx"/>
+            </FileTree.Folder>
+        </FileTree.Folder>
+
+        <FileTree.Folder name="public" defaultOpen>
+            <FileTree.File name="any-ol-image.png"/>
+            <FileTree.File name="ooh-look-an-svg.svg"/>
+            <FileTree.File name="really-just-any-images.gif"/>
+        </FileTree.Folder>
+
+    </FileTree.Folder>
+</FileTree>
+
+
+Let's break this down, the project contains two main folders, the `pages/` folder, and the `public/` folder.
+
+### The `pages/` folder
+The `pages/` folder contians both your text and metadata files that generates website.
+
+#### Metadata
+Let's look at metadata first, this is stored in `_meta.json` files, there should be **one, and only one**, within each folder in the `pages/` folder
+
+By default every file will be added to the website in alphabetical order,
+the `_meta.json` file lets us change this order. It also lets us rename documents, which would be
+difficult to do by filename alone.
+
+here is an example `_meta.json` file.
+
+```json filename="_meta.json"
+{
+  "index": "My Homepage",
+  "contact": "Contact Us",
+  "about": "About Us"
+}
+```
+In this example, the `index.mdx` page would be shown as `My Homepage` in the sidebar, while still appearing as the index page (the landing page of a website).
+
+For more information on the `_meta.json` file see [here](https://nextra.site/docs/guide/organize-files#_metajson)
+
+#### Markdown
+
+The file format used to write pages on this website is called Markdown.
+
+Markdown lets you write and render clean text documents that are also able to be read as plaintext (how you write them) alongside being rendered (how the website shows them).
+
+You can read in detial how to write in markdown [here](https://github.github.com/gfm), but here are a couple quick examples
+
+##### Text formatting
+
+This is *itallic text*, **bolded text**, ***bolded & itallic***, ~~strikethrough text~~, ~~***and all three!***~~
+
+```md filename="Markdown"
+This is *itallic text*, **bolded text**, ***bolded & itallic***, ~~strikethrough text~~, ~~***and all three!***~~
+```
+
+##### Links & images
+
+[This](https://www.google.com) is a link to Google.
+
+And this is an image!
+![Demo image](/favicon-512x512.png)
+
+```md filename="Markdown"
+[This](https://www.google.com) is a link to Google.
+
+And this is an image!
+![Demo image](/favicon-512x512.png)
+```
+
+##### Table
+
+| Syntax        | Description |   Test Text |
+| :------------ | :---------: | ----------: |
+| Header        |    Title    | Here's this |
+| Paragraph     |    Text     |    And more |
+| Strikethrough |             |    ~~Text~~ |
+
+```md filename="Markdown"
+| Syntax        | Description |   Test Text |
+| :------------ | :---------: | ----------: |
+| Header        |    Title    | Here's this |
+| Paragraph     |    Text     |    And more |
+| Strikethrough |             |    ~~Text~~ |
+```
+
+##### List & Bullet Points
+
+1. Write the press release
+2. Update the website
+3. Contact the media
+
+- bullet point
+    - Sub point
+    - Sub point 2
+        - Sub sub point
+- Another bullet point
+
+```md filename="Markdown"
+1. Write the press release
+2. Update the website
+3. Contact the media
+
+- bullet point
+    - Sub point
+    - Sub point 2
+        - Sub sub point
+- Another bullet point
+```
+
+#### Markdown Extension (MDX)
+
+When writing for this website, sometimes it is nice to have some extra features such as:
+
+<Callout type="info">This Callout</Callout>
+
+These things are provided by Nextra and you can read about them [here](https://nextra.site/docs/guide/built-ins).
+
+Using these requires the use of some minimal coding, but don't be afraid, it's quite simple once you get used to it.
+
+To use these features you must have files that end in `.mdx`, you can still use `.mdx` even if you don't plan to use any
+extra features, but you cannot use extra features in files ending in the regular `.md`.
+
+### The `public/` folder
+The `public/` folder contains any graphics you would like to use in your content, such as images.
+
+When adding image files to you page, you can just use the file location based on the `public/` folder.
+So for instance in the above [image example](#links--images), you can see we are using the image `favicon-512x512.png`.
+this image is located in our project at `public/favicon-512x512.png`, but we can access it simply by linking to the image at `/favicon-512x512.png`.
+
+## How do I write docs?
+
+First things first make sure you've followed all the steps in [what do I need?](#what-do-i-need).
+
+### 1. Open Visual Studio Code
+    - This is the application where you will write and manage files for the project.
+    - Once open it should look something like this:
+    <Callout type="info">Your's will look somewhat different as I have customized my vscode, you can do this to yours on your own time.</Callout>
+
+    ![vscode-welcome](/doc-tutorial/vscode-welcome.png)
+
+import { Kbd } from "@nextui-org/kbd";
+
+### 2. Set your git credentials
+    - This tells git *who* you are, letting it keep track of your changes.
+    - To do this press <Kbd keys={["ctrl"]}>`</Kbd> to open the terminal.
+    - In the terminal, you need to execute the following 2 commands, one line at a time (do not include the `$` in the command).
+
+```shell filename="Terminal"
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
+### 3. Clone (download) the project from GitHub
+    - If you're curious about what we're doing here:
+        - git, the tool we downloaded earlier is a tool which tracks changes to files.
+        - GitHub is a website which holds these changes in a remote repository, so multiple people can access it and change files at the same time independently.
+        - ***Clone***ing is the process of downloading all of the files (and the changes) to your computer so you can make changes.
+    - To do this press <Kbd keys={["command", "shift"]}>P</Kbd> or <Kbd keys={["ctrl", "shift"]}>P</Kbd> to open the **Command Palette** and search for `git: Clone`, once it is selected, press enter.
+
+    ![vscode-clone](/doc-tutorial/vscode-clone.png)
+
+    - Next it will ask you for the url of the repository you want to clone, copy and paste the following `https://github.com/tigerbotics7125/website`, then press enter.
+
+    ![vscode-clone-url](/doc-tutorial/vscode-clone-url.png)
+
+    - Next it will ask you where to put the project folder, pick a location, then select `Select as Repository Destination`.
+
+    ![vscode-clone-location](/doc-tutorial/vscode-clone-location.png)
+
+    - Finally, it will ask you if you would like to open the folder, go ahead and select `Open`.
+
+    ![vscode-clone-open](/doc-tutorial/vscode-clone-open.png)
+
+    - If everything has gone correct, vscode should reopen, and all the project files should appear in your file explorer.
+
+    ![vscode-clone-finish](/doc-tutorial/vscode-clone-finish.png)
+
+### 4. Make a branch to edit your files on.
+    - If you're curious about what we're doing here:
+        - When making changes to code, you "commit" them onto a branch, allowing git to keep track of who changes what.
+        - by default, this all occurs on the `main` branch, the problem here is the `main` branch is what is published to the website.
+        - In order to allow for editing the website without permanently changing what is public, we can use a different branch to preview our changes before making them (mostly) permanent (by commitingW to main).
+        - So what we are going to do is "branch" our changes from main, and once we are happy with them we will merge them back into the main branch making them public.
+    - Open the source control tab in the sidebar
+
+    ![source-control](/doc-tutorial/source-control.png)
+
+    - Click on the 3 dots, then `Branch` > `Create Branch...`
+
+    ![create-branch](/doc-tutorial/create-branch.png)
+
+    - Then pick a name for your branch, ideally **you should make a new branch for each page or topic you write on.** After you choose a name, press enter.
+
+    ![name-branch](/doc-tutorial/name-branch.png)
+
+    - After you've done this, you should be able to see your current branch in the bottom left.
+
+    <Callout type="info">You can also create and change between multiple branches from either the source control tab or by clicking on the current branch in the bottom left.</Callout>
+
+    ![current-branch](/doc-tutorial/current-branch.png)
+
+### 5. Write your docs!
+    - At this point, you can make changes, add pages, do whatever you want.
+    - If you have administrative privledges on your computer, you can run the website on your computer, this will let you test it before you commit any changes.
+        - If you do not have administrative privledges, thats ok, it's just a little inconvenient to see your changes. Go on to the next step to see what to do.
+    - first you need to open the terminal with <Kbd keys={["ctrl"]}>\`</Kbd>
+    - Then run `pnpm i` this will install all the dependencies the project needs.
+    - Next you can run `pnpm run dev` this will start the website, you should see something like the following in your terminal
+
+    ![terminal-server](/doc-tutorial/terminal-server.png)
+
+    - You should be able to access the website at http://localhost:3000/ in your browser.
+        - The website will compile each page as it is required, so it may take a while to go to new pages, you should be able to see what the website is doing in the terminal.
+        - When you change a file, and save it, the website should automatically refresh \(after it compiles again).
+
+### 6. Commiting your changes
+    - Once you are happy with your changes, you'll want to commit them to your branch.
+    - To do this, open the Source Control tab again.
+
+    ![source-control](/doc-tutorial/source-control.png)
+
+    - You'll see a list of files which have been added, modified or deleted. When you hover over a file you can "stage" it by pressing the `+` button, or you can stage all files by clicking the `+` beside "changes".
+    - After you have staged your changes, add a commit message in the box above, something descriptive about your changes, such as "added x doc". After you do that, press the blue commit button.
+
+    ![stage-changes](/doc-tutorial/stage-changes.png)
+
+    - Once you have commited your changes, you can push your code (send it to github) by clicking on the three dots, then `Push`. If it prompts you to publish the branch, that just means github doesn't doesn't know of your branch yet, go ahead and publish it.
+
+    ![push](/doc-tutorial/push.png)
+    ![publish](/doc-tutorial/publish.png)
+
+    - After you push your code you should be able to see it on GitHub (here)[https://github.com/tigerbotics7125/website]. You can click the dropdown beside main to see all published branches. Your commited changes are available under your branch which you just published.
+
+    ![branches](/doc-tutorial/branches.png)
+
+### 7. Creating a pull request & previewing your changes
+    - We are finally nearing the end, where we can get your changes pulled onto the main branch (and published to the website).
+    - Navigate to the pull request tab on the repository on GitHub or you can click [this link](https://github.com/Tigerbotics7125/website/pulls).
+
+    ![pull-request](/doc-tutorial/pull-request.png)
+
+    - Click on the `New pull request` button, this will open a page which compares your changes, leave the base as main, but change compare to the branch you want to pull into main. This should pull up all of the changes you did on your branch.
+
+    ![pr-compare](/doc-tutorial/pr-compare.png)
+
+    - Click on the `Create pull request` button, this will prompt you for a title and description, fill these in reasonably, once you have done that, click `Create pull request`.
+
+    ![pr-create](/doc-tutorial/pr-create.png)
+
+    - After a minute or two, the vercel bot will comment on your pull request with a link to where you can preview your changes.
+
+    ![pr-preview](/doc-tutorial/pr-preview.png)
+
+    - If you decided you need to make more changes, and or you aren't actually ready for the pull request to be pulled into main, you should mark it as a draft, which you can do below the reviewers section.
+
+    ![pr-draft](/doc-tutorial/pr-draft.png)
+
+    - If you commit more changes to your branch (and push them), they will automatically be added to the pull request, where the vercel bot will build the website again, and you can preview your changes. This is your alternative if you cannot test the website locally on your computer.
+
+    ![pr-more-commits](/doc-tutorial/pr-more-commits.png)
+
+### 8. Merging your pull request
+    - In order to merge your pull request onto main (and get published on the website) it must pass the following checks.
+        1. A review from an admin (either Jeff or Stover)
+        2. The vercel build to not fail (why would we publish a broken website?)
+        3. Any comments from the vercel preview to be resolved. (ensuring there is no debate on the page before it is published)
+    - Once your pull request has passed all the requirements, for the most recent commit, it is eligable to be merged into main.
+    - Once you merge your pull request, all of your hard work will be complete and will be public on the website! Congratulations!

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
+    "@nextui-org/kbd": "^2.0.25",
     "next": "^14.0.2",
     "nextra": "2.13.2",
     "nextra-theme-docs": "2.13.2",
