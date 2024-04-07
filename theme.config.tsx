@@ -8,7 +8,7 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter()
     if (asPath !== '/') {
       return {
-        titleTemplate: '%s - Tigerbotics Megadocs'
+        titleTemplate: '%s - Tigerbotics',
       }
     }
   },
@@ -21,8 +21,9 @@ const config: DocsThemeConfig = {
         <meta content={title} property="og:title" />
         <meta property="og:type" content="website" />
         <meta content={"https://tigerbotics.aurorabotics.com" + asPath} property="og:url" />
-        <meta content="/Tigerbotics-flat.svg" property="og:image" />
-        <meta content="This website serves as a collection point for all information about Tigerbotics, whether it be our cooperative technical documentation base, our Open Alliance build logs, or simply pictures of our robot, you can find it here." property="og:description" />
+        <meta name="twitter:image" content="/tigerbotics-hexagons.png"></meta>
+        <meta content="/favicon-512x512.png" property="og:image" />
+        <meta content="Tigerbotic's collective knowledge database." property="og:description" />
         <meta content="#EE4B2B" data-react-helmet="true" name="theme-color" />
       </>
     );
