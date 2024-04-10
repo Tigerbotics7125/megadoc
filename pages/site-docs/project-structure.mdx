@@ -1,0 +1,86 @@
+---
+description: A guide explaining the file structure of this websites source.
+---
+import { Callout, FileTree } from 'nextra/components'
+
+# Understanding the Project's File Structure
+
+The file structure of the project may seem convoluted initially, this document should help alleviate any confusion about the structure and explain some of the basic files you will encounter.
+
+Here is an example file tree which represents a basic project.
+
+<FileTree>
+    <FileTree.Folder name="project" defaultOpen>
+
+        <FileTree.Folder name="pages" defaultOpen>
+            <FileTree.File name="_meta.json" />
+            <FileTree.File name="index.mdx" />
+            <FileTree.File name="some-other-page.mdx"/>
+
+            <FileTree.Folder name="some-collection">
+                <FileTree.File name="_meta.json"/>
+                <FileTree.File name="part-of-the-collection.mdx"/>
+                <FileTree.File name="another-part.mdx"/>
+            </FileTree.Folder>
+
+            <FileTree.Folder name="another-collection">
+                <FileTree.File name="_meta.json"/>
+                <FileTree.File name="a-platypus.mdx"/>
+                <FileTree.File name="perry-the-platypus.mdx"/>
+            </FileTree.Folder>
+        </FileTree.Folder>
+
+        <FileTree.Folder name="public" defaultOpen>
+            <FileTree.File name="any-ol-image.png"/>
+            <FileTree.File name="ooh-look-an-svg.svg"/>
+            <FileTree.File name="really-just-any-images.gif"/>
+        </FileTree.Folder>
+
+    </FileTree.Folder>
+</FileTree>
+
+There are more files than shown in the file tree, but most of them should not be modified unless you are a programmer, and you know what you're doing.
+
+The project contains two main folders, the `pages/` folder, and the `public/` folder, the following sections will describe the purpose of each.
+
+## The `pages/` Folder
+The `pages/` folder contains *the meat* of the project, it contains Markdown files and metadata files, both of which are used together to generate the content of the website.
+
+### Markdown
+You can learn more about [Markdown](./markdown) and [MDX](./md-extension) in their respective documentation page.
+
+Every Markdown file generates its own page on the website, by default they will be shown in the sidebar in alphabetical order, with the same name as their filename.
+These aspects can be changed with metadata, read on to learn how.
+
+### Metadata
+Stored in `_meta.json` files, there should be **one, and only one**, within each folder / directory of the `pages/` folder.
+
+`_meta.json` files are able to change many aspects about the website.
+Most commonly (and simply), the name of pages, and their order in the sidebar are configured.
+
+When a page (or pages) is declared in the `_meta.json` file, it will appear in the sidebar in the same order that it appears in the `_meta.json` file.
+This does mean a page can be shown in the sidebar with no Markdown file to represent it. If this occurs, clicking on the item will simply do nothing.
+This is good for having placeholder pages which you would like to fill out later.
+
+Pages can also be renamed via the `_meta.json` file.
+This allows for concise file names, but more verbose page names.
+If you do not wish to change the page name you can simply provide an empty string `""`, this will still define the pages order in the sidebar.
+
+here is an example `_meta.json` file:
+```json filename="_meta.json"
+{
+  "index": "My Homepage",
+  "contact": "Contact Us",
+  "about": "About Us"
+}
+```
+In this example, the `contact.mdx` page would be shown as `Contact Us` in the sidebar, while the link to this page would remain as https://example.com/contact.
+
+**For more information on the `_meta.json` file and what else it can do, see [here](https://nextra.site/docs/guide/organize-files#_metajson).**
+
+## The `public/` folder
+The `public/` folder is where any server side content should be stored.
+This means files such as images, gifs, or videos should go in this folder.
+
+You can reference files in the `public/` folder as if the base `public/` and `pages/` directories were the same place.
+You can see an example of this [here](./markdown#images).

@@ -1,0 +1,208 @@
+---
+description: An overview on the most common aspects of writing in Markdown.
+---
+# Markdown
+
+Markdown is a lightweight markup language for creating formatted text using a plain-text editor.
+
+In Laymen's terms: Markdown's purpose is to use plain-text, which is easily human readable, to *mark up* the content (hence the name Mark*down*) into pretty to read content, such as this website.
+
+Markdown is an alternative to something like HTML - HyperText Markup Language (the language used to describe how your web-page appears in your browser) which is practically incomprehensible to understand unless you are an alien, or perhaps Mark Zuckerberg?
+
+Actually Markdown is able to be converted into HTML (what this project does!) instead of making you write HTML.
+
+You can read in detail everything there is to know about Markdown [here](https://github.github.com/gfm), but the following examples should show you the basics and get you started writing basic pages immediately. Just a reminder, nothing is easy at first, give yourself some time to figure out how Markdown works.
+
+---
+
+## Headings
+
+Headings are large bold text elements, they should be used only as headings and [text formatting](#basic-text-formatting) should be used for plain-text. There are only 6 levels of headings.
+
+Level 1 headings should only be used once per page, as the title of the page.
+
+### Example
+
+# Level 1 Heading
+## Level 2 Heading
+### Level 3 Heading
+#### Level 4 Heading
+##### Level 5 Heading
+###### Level 6 Heading
+
+### Usage
+
+```md showLineNumbers filename="Markdown"
+# Level 1 Heading
+## Level 2 Heading
+### Level 3 Heading
+#### Level 4 Heading
+##### Level 5 Heading
+###### Level 6 Heading
+```
+
+## Basic Text Formatting
+
+Basic text can be written as expected, plain-text; text formatting, like italics, bold, and strikethrough are still possible.
+
+### Example
+Regular text, *italic text,* **bold text,** ~~strikethrough text,~~ ***italic-bold text,*** ~~*italic-strikethrough text,*~~ ~~**bold-strikethrough text,**~~ ~~***italic-bold-strikethrough text.***~~
+
+### Usage
+```md showLineNumbers filename="Markdown"
+Regular text, *italic text,* **bold text,** ~~strikethrough text,~~ ***italic-bold text,*** ~~*italic-strikethrough text,*~~ ~~**bold-strikethrough text,**~~ ~~***italic-bold-strikethrough text.***~~
+```
+
+## Paragraphs
+
+Paragraphs can be written as consecutive non-blank lines. A blank line between lines of text will create a new paragraph.
+
+### Example
+aaa
+bbb
+
+ccc
+ddd
+
+### Usage
+```md showLineNumbers filename="Markdown"
+aaa
+bbb
+
+ccc
+ddd
+```
+
+## Thematic Break
+
+You can insert a line across the page to give a visual break between topics or long sections. These are automatically entered under level 2 [headings](#headings)
+
+### Example
+
+---
+
+### Usage
+```md showLineNumbers filename="Markdown"
+---
+```
+
+## Tables
+
+A table is an arrangement of data with rows and columns.
+
+Tables consist of a header row, a delimiter row, and zero or more data rows.
+
+A delimiter row consists of cells whose only content are hyphens, or optionally a leading, or trailing colon (`:`), or both, to indicate, left, right, or center alignment respectively.
+
+### Example
+
+| Left              | Middle             | Right              |
+| :---------------- | :----------------: | -----------------: |
+| Foo-Bar           | Biz-Fiz            | Buzz-Fuzz          |
+| Bar-Foo           | Fiz-Biz            | Fuzz-Buzz          |
+| Super-Long-Fooooo | Super-Long-Bizzzzz | Super-Long-Fuzzzzz |
+
+### Usage
+```md showLineNumbers filename="Markdown"
+| Left              | Middle             | Right              |
+| :---------------- | :----------------: | -----------------: |
+| Foo-Bar           | Biz-Fiz            | Buzz-Fuzz          |
+| Bar-Foo           | Fiz-Biz            | Fuzz-Buzz          |
+| Super-Long-Fooooo | Super-Long-Bizzzzz | Super-Long-Fuzzzzz |
+```
+
+## Block Quotes
+
+A block quote is marked with a `>` followed by the desired text.
+
+### Example
+
+> A silly little quote.
+
+### Usage
+```md showLineNumbers filename="Markdown"
+> A silly little quote.
+```
+
+## Lists
+
+Bulleted lists can be created with `-`, `+`, or `*` characters.
+
+Ordered lists can be created with a sequence of 1-9 digits `0-9` followed by either `.` or `)`.
+
+Main list items start at the beginning of a line, sub items inset 4 spaces (or 1 tab) from their parent item.
+
+### Example
+- Milk
+- Eggs
+- Video Games
+    1. Super Mario Bros
+        - SMB 1
+        - SMB 3
+    2. Battletoads
+    3. Minecraft
+
+1. Go to the store
+2. Get the items
+3. Pay for the items
+    - Optional
+4. Go home
+
+### Usage
+```md showLineNumbers filename="Markdown"
+- Milk
+- Eggs
+- Video Games
+    1. Super Mario Bros
+        - SMB 1
+        - SMB 3
+    2. Battletoads
+    3. Minecraft
+
+1. Go to the store
+2. Get the items
+3. Pay for the items
+    - Optional
+4. Go home
+```
+
+## Links
+
+Links can be declared with a set of square brackets `[ ]` followed by a pair of parenthesis `( )`.
+
+Link text goes within the square brackets, and the link references goes within the parenthesis.
+
+### Example
+[Tigerbotics' Amazing Website.](https://tigerbotics.org)
+
+[Google](https://www.google.com) is a great place to look for solutions.
+
+### Usage
+```md showLineNumbers filename="Markdown"
+[Tigerbotics' Amazing Website.](https://tigerbotics.org)
+
+[Google](https://www.google.com) is a great place to look for solutions.
+```
+
+## Images
+
+Images are very similar to links, simply prefaced with an exclamation point `!`.
+
+Instead of link text however, it is alt text, which will be shown if the image fails to load.
+
+Images can also be wrapped within links, making clickable images.
+
+### Example
+![Tigerbotics' logo](/favicon-512x512.png)
+
+This one will take you to the Tigerbotics home page.
+[![Tigerbotics Home](/tigerbotics-hexagons.png)](https://tigerbotics.org)
+
+### Usage
+
+```md showLineNumbers filename="Markdown"
+![Tigerbotics' logo](/favicon-512x512.png)
+
+This one will take you to the Tigerbotics home page.
+[![Tigerbotics Home](/tigerbotics-hexagons.png)](https://tigerbotics.org)
+```

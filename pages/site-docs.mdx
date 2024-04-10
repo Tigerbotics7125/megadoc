@@ -1,0 +1,37 @@
+---
+description: "Documentation pertaining to the website source code itself."
+---
+
+# Website Documentation
+
+Anyone is welcome to contribute to the website, these document serve as a step-by-step guide for how to do so.
+
+While outside contributions are possible, all contributions are reviewed, before publication, including those from team members.
+
+import { Card, Cards, Steps } from 'nextra/components'
+import { IoFootsteps, IoReader, IoBook } from "react-icons/io5";
+
+<Steps>
+<h3>
+<Cards>
+    <Card icon={<IoFootsteps />} title="First Steps" arrow={true} href="./site-docs/required" />
+</Cards>
+</h3>
+<h3>
+<Cards>
+    <Card icon={<IoReader/>} title="Bring-Up: Project Structure" arrow={true} href="./site-docs/project-structure"/>
+    <Card icon={<IoReader/>} title="Bring-Up: Markdown Basics" arrow={true} href="./site-docs/markdown"/>
+    <Card icon={<IoReader/>} title="Bring-Up: Markdown Extension (MDX)" arrow={true} href="./site-docs/md-extension"/>
+</Cards>
+</h3>
+<h3>
+<Cards>
+    <Card icon={<IoBook/>} title="Editing The Website" arrow={true} href="./site-docs/writing"/>
+</Cards>
+</h3>
+<h3>
+<Cards>
+    <Card icon={<IoReader/>} title="Advanced Project Knowledge" arrow={true} href="./site-docs/advanced"/>
+</Cards>
+</h3>
+</Steps>

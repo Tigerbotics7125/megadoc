@@ -1,0 +1,4 @@
+{
+    "mdx.server.enable": true,
+    "mdx.validate.validateFileLinks": "hint"
+}

@@ -18,19 +18,22 @@ const config: DocsThemeConfig = {
     }
   },
   head: function useHead() {
-    const { title } = useConfig();
+    const { title, frontMatter } = useConfig();
     const { asPath } = useRouter();
     return (
       <>
+
         <link rel="icon" href="/favicon-32x32.png" />
-        <meta content={title} property="og:title" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta content={"https://tigerbotics.aurorabotics.com" + asPath} property="og:url" />
-        <meta name="twitter:image" content="/tigerbotics-hexagons.png"/>
-        <meta content="/tigerbotics-hexagons.png" property="og:image" />
-        <meta content="Tigerbotic's collective knowledge database." property="og:description" />
-        <meta content="#EE4B2B" data-react-helmet="true" name="theme-color" />
+
+        <meta property="og:title" content={title}/>
+        <meta property="og:type" content="website"/>
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="og:url" content={"https://tigerbotics.aurorabotics.com" + asPath}/>
+        <meta property="twitter:image" content="/tigerbotics-hexagons.png"/>
+        <meta property="og:image" content="/tigerbotics-hexagons.png"/>
+        {/* <meta content="Tigerbotic's collective knowledge database." property="og:description" /> */}
+        <meta property="og:description" content={frontMatter.description || "Tigerbotic's collective knowledge database."}/>
+        <meta property="theme-color" content="#EE4B2B" data-react-helmet="true"/>
       </>
     );
   },
@@ -45,9 +48,13 @@ const config: DocsThemeConfig = {
   sidebar: {
     toggleButton: true,
     defaultMenuCollapseLevel: 1,
-    titleComponent({ title, route }) {
+    titleComponent({ title, route, type}) {
+      // not a doc don't worry abt it.
+      if (type != "doc")
+        return <>{title}</>
+
       // Not implemented yet.
-      if (route === "#")
+      if (route === "" || route === "#")
         return <s>{title}</s>
       else
         return <>{title}</>

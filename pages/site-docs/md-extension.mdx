@@ -1,0 +1,148 @@
+---
+description: An explanation of MDX and how to use Nextra components.
+---
+# Understanding Markdown Extension (MDX)
+
+MDX, or Markdown Extension is an extension to the regular Markdown language which allows for React (A web development programming langue) components to be embedded within the file.
+
+Nextra (the site generate that this project uses) provides some easy to use components which drastically enhance the readability of the site and are generally a good idea to use where appropriate.
+
+Using these components does require some minimal coding, don't be afraid, these components are designed to be simple and still human readable, just as Markdown is supposed to be.
+
+These components are listed below, with both examples and how to use them in your `.mdx` file. More technical documentation is available [here](https://nextra.site/docs/guide/built-ins) provided by Nextra.
+
+## Callout Component
+A component which shows important information to the reader.
+
+### Example
+import { Callout } from 'nextra/components'
+
+<Callout emoji="👾">**Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro Nishikado.</Callout>
+<Callout type="info">A **callout** is a short piece of text intended to attract attention.</Callout>
+<Callout type="warning">A **callout** is a short piece of text intended to attract attention.</Callout>
+<Callout type="error">A **callout** is a short piece of text intended to attract attention.</Callout>
+
+### Usage
+```mdx filename="Markdown Extension"
+import { Callout } from 'nextra/components'
+
+<Callout emoji="👾">**Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro Nishikado.</Callout>
+<Callout type="info">A **callout** is a short piece of text intended to attract attention.</Callout>
+<Callout type="warning">A **callout** is a short piece of text intended to attract attention.</Callout>
+<Callout type="error">A **callout** is a short piece of text intended to attract attention.</Callout>
+```
+
+## Tabs Component
+A component which shows similar information with varying instructions under multiple tabs.
+### Example
+import { Tabs } from 'nextra/components'
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tabs.Tab>**pnpm**: Fast, disk space efficient package manager.</Tabs.Tab>
+  <Tabs.Tab>**npm** is a package manager for the JavaScript programming language.</Tabs.Tab>
+  <Tabs.Tab>**Yarn** is a software packaging system.</Tabs.Tab>
+</Tabs>
+### Usage
+```mdx filename="Markdown Extension"
+import { Tabs } from 'nextra/components'
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tabs.Tab>**pnpm**: Fast, disk space efficient package manager.</Tabs.Tab>
+  <Tabs.Tab>**npm** is a package manager for the JavaScript programming language.</Tabs.Tab>
+  <Tabs.Tab>**Yarn** is a software packaging system.</Tabs.Tab>
+</Tabs>
+```
+
+## Cards Component
+A component which makes large clickable graphical buttons linking to other pages
+
+### Example
+import { Cards, Card } from 'nextra/components'
+import { IoWarningOutline, IoAlbumsOutline, IoFootstepsOutline } from "react-icons/io5";
+
+<Cards>
+  <Card icon={<IoWarningOutline />} title="Callout" href="#callout-component" />
+  <Card icon={<IoAlbumsOutline />} title="Tabs" href="#tabs-component" />
+  <Card icon={<IoFootstepsOutline />} title="Steps" href="#steps-component" />
+</Cards>
+
+### Usage
+```mdx filename="Markdown Extension"
+import { Cards, Card } from 'nextra/components'
+import { IoWarningOutline, IoAlbumsOutline, IoFootstepsOutline } from "react-icons/io5";
+
+<Cards>
+  <Card icon={<IoWarningOutline />} title="Callout" href="#callout-component" />
+  <Card icon={<IoAlbumsOutline />} title="Tabs" href="#tabs-component" />
+  <Card icon={<IoFootstepsOutline />} title="Steps" href="#steps-component" />
+</Cards>
+```
+## Steps Component
+A component to turn a numbered list into a visual representation of steps.
+
+### Example
+import { Steps } from 'nextra/components'
+
+<Steps>
+### This is the first step
+This is the first step description.
+
+### This is the second step
+This is the second step description.
+
+### This is the third step
+This is the third step description.
+</Steps>
+
+### Usage
+```mdx filename="Markdown Extension"
+import { Steps } from 'nextra/components'
+
+<Steps>
+### This is the first step
+This is the first step description.
+
+### This is the second step
+This is the second step description.
+
+### This is the third step
+This is the third step description.
+</Steps>
+```
+
+## FileTree Component
+A component which provides an file tree which can be interacted with.
+
+### Example
+import { FileTree } from 'nextra/components'
+
+<FileTree>
+  <FileTree.Folder name="pages" defaultOpen>
+    <FileTree.File name="_meta.json" />
+    <FileTree.File name="contact.md" />
+    <FileTree.File name="index.mdx" />
+    <FileTree.Folder name="about">
+      <FileTree.File name="_meta.json" />
+      <FileTree.File name="legal.md" />
+      <FileTree.File name="index.mdx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+### Usage
+```mdx filename="Markdown Extension"
+import { FileTree } from 'nextra/components'
+
+<FileTree>
+  <FileTree.Folder name="pages" defaultOpen>
+    <FileTree.File name="_meta.json" />
+    <FileTree.File name="contact.md" />
+    <FileTree.File name="index.mdx" />
+    <FileTree.Folder name="about">
+      <FileTree.File name="_meta.json" />
+      <FileTree.File name="legal.md" />
+      <FileTree.File name="index.mdx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+```

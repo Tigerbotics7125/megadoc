@@ -13,30 +13,27 @@
   "build": "Build / Mechanical",
   "electrical": "Electrical / Pneumatic",
   "programming": "Programming / Software",
-  "-- resources": {
-    "type": "separator",
-    "title": "External Resources"
-  },
-  "tba-link": {
-    "title": "The Blue Alliance ↗",
-    "href": "https://www.thebluealliance.com/",
-    "newWindow": true
-  },
   "-- members": {
     "type": "separator",
     "title": "Member Information"
   },
-  "intro-to-doc-writing": {
-    "title": "An Introduction to Writing Documentation",
-    "theme": {
-      "breadcrumb": false
-    }
-  },
+  "site-docs": "Website Documentation",
   "team-calendar": "Team Calendar",
   "-- sponsors": {
     "type": "separator",
     "title": "Sponsor Information"
   },
   "sponsor-info": "Become a sponsor 🎉",
-  "sponsors": "A Thank You to our Sponsors"
+  "sponsors": "A Thank You to our Sponsors",
+  "resources": {
+    "title": "External Resources",
+    "type": "menu",
+    "items": {
+        "tba-link": {
+          "title": "The Blue Alliance ↗",
+          "href": "https://www.thebluealliance.com/",
+          "newWindow": true
+        }
+    }
+  }
 }
