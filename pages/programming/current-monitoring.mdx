@@ -8,10 +8,15 @@ how they can be detected, and how to stop them to prevent damaging a motor.
 
 ## Understanding a Motor stall
 
+import {Callout} from 'nextra/components'
+
 A motor stall occurs when a motor is held stationary, but is requested to move.
 This results in the motor drawing a large amount of current in an attempt to move.
 Current draw in the motor is exponentially proportional to heat as shown by the equation:
-$\text{Heat}=I^{2}*R$ Heat is bad for motors, when a motor gets hot it becomes less efficient,
+<div style={{display: "flex",justifyContent: "center",}}>
+$\text{Heat}=I^{2}*R$
+</div>
+Heat is bad for motors, when a motor gets hot it becomes less efficient,
 if a motor becomes too hot, it may become damaged;
 such as the motor windings melting together causing a short.
 
