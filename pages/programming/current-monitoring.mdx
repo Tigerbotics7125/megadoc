@@ -8,19 +8,33 @@ how they can be detected, and how to stop them to prevent damaging a motor.
 
 ## Understanding a Motor stall
 
-import {Callout} from 'nextra/components'
-
-A motor stall occurs when a motor is held stationary, but is requested to move.
-This results in the motor drawing a large amount of current in an attempt to move.
-Current draw in the motor is exponentially proportional to heat as shown by the equation:
+A Motors power can be caluclated with the following equation:
 <div style={{display: "flex",justifyContent: "center",}}>
-$\text{Heat}=I^{2}*R$
+$P=I^{2}*R$
 </div>
-Heat is bad for motors, when a motor gets hot it becomes less efficient,
-if a motor becomes too hot, it may become damaged;
+where $P$ is the power produced in Watts, $I$ is the current draw of the motor in Amperes, and $R$ is the resistance of the motor windings in Ohms. This formula is only appropriate in the case that the motor is 100% efficient. A more realistic equation would be as follows:
+<div style={{display: "flex",justifyContent: "center",}}>
+$E_{\text{motor}}*P_{mechanical}+(1-E_{\text{motor}})*P_{\text{heat}} = I^{2} * R$
+</div>
+Where E, the motor effecincy is a percentage less than 100%. A manufacturer should provide an efficiency graph of their motor, for instance, here is one for the REV Neo Vortex:
+
+![REV Neo Vortex eff graph](/programming/current-monitoring/vortex-eff.png)
+
+A motor stall occurs when a motor is held stationary, preventing movement, but is requested to move.
+As you can see in the graph, when stationary, the motor is generating the most amount of torque 
+(which if not stalled would cause it to move), and drawing insane amounts of current.
+At this moment, the motor is 0% efficient, so if movement is restricted, 
+it results in all of the power going directly into heat.
+Therefore when a motor is stalled, current draw in the motor is proportional to heat as shown by the equation:
+<div style={{display: "flex",justifyContent: "center",}}>
+$P_{\text{heat}}=I^{2}*R$
+</div>
+
+In general heat is bad for motors, when a motor gets hot it becomes less efficient,
+and if the motor becomes too hot, it may become damaged;
 such as the motor windings melting together causing a short.
 
-Below is an image of a simulated stall using the WPILib simulator, where you can see,
+Below is an image of a simulated stall condition using the WPILib simulator, where you can see,
 as the motor is stopped, the current proportionally increases as an attempt to rectify the situation.
 
 ![current-spike-simulation](/programming/current-monitoring/current-spike-sim.png)
