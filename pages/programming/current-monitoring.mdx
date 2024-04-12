@@ -1,0 +1,103 @@
+---
+description: General education on motor stalls, how to detect them, and how to react to prevent them.
+---
+# Current Monitoring & Detecting Motor Stalls
+
+This document serves to educate about what a motor stall is,
+how they can be detected, and how to stop them to prevent damaging a motor.
+
+## Understanding a Motor stall
+
+import {Callout} from 'nextra/components'
+
+A motor stall occurs when a motor is held stationary, but is requested to move.
+This results in the motor drawing a large amount of current in an attempt to move.
+Current draw in the motor is exponentially proportional to heat as shown by the equation:
+<div style={{display: "flex",justifyContent: "center",}}>
+$\text{Heat}=I^{2}*R$
+</div>
+Heat is bad for motors, when a motor gets hot it becomes less efficient,
+if a motor becomes too hot, it may become damaged;
+such as the motor windings melting together causing a short.
+
+Below is an image of a simulated stall using the WPILib simulator, where you can see,
+as the motor is stopped, the current proportionally increases as an attempt to rectify the situation.
+
+![current-spike-simulation](/programming/current-monitoring/current-spike-sim.png)
+
+> In the simulation, the "motor" is being allowed to run for 5 seconds,
+> then its velocity is forcibly brought to zero \(simulating a stall condition) for another 5 seconds.
+> This then causes the motor controller to try and rectify the "stall" by increasing its current output.
+
+## Detecting a Motor Stall (or any Current Spike)
+
+### Using a Debouncer
+Using WPILib, we can use a `Debouncer` and the `PowerDistribution` class to detect a spike in the current.
+A debouncer, checks that the provided boolean value stays in the desired condition
+(`true` or `false`) for longer than a specified amount of time before it declares it as valid.
+
+```java showLineNumbers, filename="Robot.java"
+public class Robot extends TimedRobot {
+
+    private static final double kStallCurrent = 35; // Amps
+
+    private Debouncer m_debouncer;
+
+    PowerDistribution m_powerDist;
+
+    @Override
+    public void robotInit() {
+        // Time in seconds value must remain true to be considered true.
+        double debounceTime = .25;
+        // Debouncer is ensuring the value is staying true.
+        DebounceType debounceType = DebounceType.kRising;
+        m_debouncer = new Debouncer(debounceTime, debounceType);
+
+        pdp = new PowerDistribution();
+    }
+
+    @Override
+    public void teleopPeriodic() {
+        // Get the current from channel 0 on the PDP/PDH.
+        double currentDraw = m_powerDist.getCurrent(0);
+
+        // Check the debouncer state, it will return false until (currentDraw > kStallCurrent)
+        // has been true for the time provided in its constructor.
+        boolean isStalled = m_debouncer.calculate(currentDraw > kStallCurrent);
+    }
+}
+```
+
+### Considering Detection Time & Stall Current.
+Some consideration is required when finding good values for your debounce time and stall current.
+
+The first thing to tune should be the stall current. The stall current should be marginally above your idle current draw.
+In the example below the idle current draw is about 30 Amps,
+so a conservative value of 35 Amps was chosen to be considered as a stall.
+
+Secondly, the debounce time, when a motor starts from rest \(or changes speeds at all), a change in current will be seen.
+The problem with this fact is that, this is not a stall state, the motor is just getting up to speed.
+To get around this, a value should be chosen that is marginally above the time it takes for this initial current spike to die down.
+In the example below, it takes ~0.25 seconds in order to get the stopped motor up to speed, or close, but below the stall threshold.
+A value of 0.3 seconds was chosen as to mitigate false triggers while catching stalls as early as possible.
+
+Both values should be tuned to be as small as possible in order to detect stalls as quickly as possible,
+but be cautious that you do not go too small and begin to have false positives.
+
+Once a stall has been detected, your goal now becomes to stop it, whether this be to disable the motor,
+or start some other subsystem to "un-stall" the motor. Below is a simulated example of a motor stalling,
+and once it is stalled, it is set to neutral.
+
+![current-spike-simulation](/programming/current-monitoring/stall-stopped.png)
+
+## Usage
+
+### CHARGED UP
+This strategy was used in the 2023 CHARGED UP season: [code link](https://github.com/Tigerbotics7125/FRC2023/blob/main/src/main/java/io/github/tigerbotics7125/robot/subsystem/Intake.java#L167).
+
+Once the intake  grabbed a game-piece, it would stall the intake motors.
+To prevent damaging both the game-piece or the motors, stall detection was implemented to run the hold game-piece Command,
+and to also give the drivers feedback so they would know a game-piece was successfully collected.
+
+### WPILib Simulation
+The simulation code used for this document can be found on GitHub [here](https://github.com/Tigerbotics7125/motor-stall-detection-sim).
