@@ -1,0 +1,5 @@
+{
+    "build": {
+        "pre": ["python", "update_front_matter.py", "./pages/"]
+    }
+}

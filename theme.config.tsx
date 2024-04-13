@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 import Image from 'next/image'
-import { title } from 'process'
+import { timeStamp } from 'console'
 
 const config: DocsThemeConfig = {
   useNextSeoProps() {
@@ -76,6 +76,29 @@ const config: DocsThemeConfig = {
         </span>
       </>
   },
+  gitTimestamp: function GitTimestamp({timestamp}) {
+    const { locale = 'en-US' } = useRouter()
+    const { frontMatter } = useConfig()
+
+    var text;
+    if (frontMatter.authors !== undefined) {
+      text = `Authored by ${frontMatter.authors}, last updated on `;
+    } else {
+      text = 'Last updated on '
+    }
+    return (
+      <>
+        {text}
+        <time dateTime={timestamp.toISOString()}>
+          {timestamp.toLocaleDateString(locale, {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          })}
+        </time>
+      </>
+    )
+  }
 }
 
 export default config
