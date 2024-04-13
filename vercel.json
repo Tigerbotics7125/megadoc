@@ -1,5 +1,3 @@
 {
-    "build": {
-        "pre": ["python", "update_front_matter.py", "./pages/"]
-    }
+    "buildCommand": "python update_front_matter.py ./pages/ ; next build"
 }
