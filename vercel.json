@@ -1,3 +1,0 @@
-{
-    "buildCommand": "python update_front_matter.py ./pages/ ; next build"
-}
