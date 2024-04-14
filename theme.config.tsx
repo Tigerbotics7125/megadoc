@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 import Image from 'next/image'
-import { title } from 'process'
+import { timeStamp } from 'console'
 
 const config: DocsThemeConfig = {
   useNextSeoProps() {
@@ -25,15 +25,15 @@ const config: DocsThemeConfig = {
 
         <link rel="icon" href="/favicon-32x32.png" />
 
-        <meta property="og:title" content={title}/>
-        <meta property="og:type" content="website"/>
-        <meta property="twitter:card" content="summary_large_image"/>
-        <meta property="og:url" content={"https://tigerbotics.aurorabotics.com" + asPath}/>
-        <meta property="twitter:image" content="/tigerbotics-hexagons.png"/>
-        <meta property="og:image" content="/tigerbotics-hexagons.png"/>
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="og:url" content={"https://tigerbotics.aurorabotics.com" + asPath} />
+        <meta property="twitter:image" content="/tigerbotics-hexagons.png" />
+        <meta property="og:image" content="/tigerbotics-hexagons.png" />
         {/* <meta content="Tigerbotic's collective knowledge database." property="og:description" /> */}
-        <meta property="og:description" content={frontMatter.description || "Tigerbotic's collective knowledge database."}/>
-        <meta property="theme-color" content="#EE4B2B" data-react-helmet="true"/>
+        <meta property="og:description" content={frontMatter.description || "Tigerbotic's collective knowledge database."} />
+        <meta property="theme-color" content="#EE4B2B" data-react-helmet="true" />
       </>
     );
   },
@@ -48,7 +48,7 @@ const config: DocsThemeConfig = {
   sidebar: {
     toggleButton: true,
     defaultMenuCollapseLevel: 1,
-    titleComponent({ title, route, type}) {
+    titleComponent({ title, route, type }) {
       // not a doc don't worry abt it.
       if (type != "doc")
         return <>{title}</>
@@ -76,6 +76,27 @@ const config: DocsThemeConfig = {
         </span>
       </>
   },
+  gitTimestamp: function GitTimestamp({ timestamp }) {
+    const { locale = 'en-US' } = useRouter()
+    const { frontMatter } = useConfig()
+    return (
+      <>
+        {frontMatter.authors !== undefined ? "Authored by: " : "No known author. "}
+        {frontMatter.authors !== undefined ? <strong>{frontMatter.authors}</strong> : null}
+        {frontMatter.authors !== undefined ? ". " : null}
+        Last updated on: {' '}
+        <strong>
+          <time dateTime={timestamp.toISOString()}>
+            {timestamp.toLocaleDateString(locale, {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+            })}
+          </time>
+        </strong>
+      </>
+    )
+  }
 }
 
 export default config
