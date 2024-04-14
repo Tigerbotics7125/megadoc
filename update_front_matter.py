@@ -5,11 +5,13 @@ import sys
 
 # Function to get list of authors who modified a file
 def get_authors(file_path):
+    file_str = "[ " + str(file_path)[str(file_path).index("/", 2) + 1:].replace("\\", "/") + " ] - "
     git_command = ["git", "log", "--pretty=format:%an", file_path]
     result = subprocess.run(git_command, stdout=subprocess.PIPE)
     authors = set(result.stdout.decode("utf-8").splitlines())
     if authors.__contains__("github-actions[bot]"):
         authors.remove("github-actions[bot]")
+    print(file_str + "File has authors: " + str(authors))
     return ", ".join(authors)
 
 # Function to update front matter of markdown files
