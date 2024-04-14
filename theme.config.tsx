@@ -84,7 +84,7 @@ const config: DocsThemeConfig = {
         {frontMatter.authors !== undefined ? "Authored by: " : "No known author. "}
         {frontMatter.authors !== undefined ? <strong>{frontMatter.authors}</strong> : null}
         {frontMatter.authors !== undefined ? ". " : null}
-        Last updated on {' '}
+        Last updated on: {' '}
         <strong>
           <time dateTime={timestamp.toISOString()}>
             {timestamp.toLocaleDateString(locale, {
