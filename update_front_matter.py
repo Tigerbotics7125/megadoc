@@ -8,6 +8,7 @@ def get_authors(file_path):
     git_command = ["git", "log", "--pretty=format:%an", file_path]
     result = subprocess.run(git_command, stdout=subprocess.PIPE)
     authors = set(result.stdout.decode("utf-8").splitlines())
+    authors.remove("github-actions[bot]")
     return ", ".join(authors)
 
 # Function to update front matter of markdown files
