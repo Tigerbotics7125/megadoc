@@ -3,6 +3,7 @@ description: A step-by-step guide for editing, committing changes, creating pull
 authors: Jeffrey Morris
 ---
 import { Callout, Steps } from 'nextra/components'
+import {Kbd} from '@nextui-org/react'
 
 # Editing The Website
 
@@ -25,7 +26,7 @@ Git needs to know *who* you are.
 Git tracks who makes what changes, so before you can actually make any, you have to tell it who you are.
 
 To do this:
-1. Press ⌘+\` or CTRL+\` or click `View > Terminal` to open the terminal.
+1. Press <Kbd keys={["command"]}>\`</Kbd> or <Kbd keys={["ctrl"]}>\`</Kbd> or click `View > Terminal` to open the terminal.
 2. In the terminal window you need to execute the following 2 commands:
     1. `git config --global user.name "Your Name"{:bash}`
     2. `git config --global user.email "youremail@example.com"{:bash}`
@@ -43,7 +44,7 @@ GitHub is a website which holds the information git logs, along with the files i
 
 To do this:
 
-1. Press ⌘+SHIFT+P or CTRL+SHIFT+P or click `View > Command Palette` to open the **Command Palette** and search for `git: Clone`, once it is selected, press enter.
+1. Press <Kbd keys={["command", "shift"]}>P</Kbd> or <Kbd keys={["ctrl", "shift"]}>P</Kbd> or click `View > Command Palette` to open the **Command Palette** and search for `git: Clone`, once it is selected, press enter.
 
 ![vscode-clone](/doc-tutorial/vscode-clone.png)
 
@@ -101,7 +102,7 @@ If you have administrative privileges on your computer, you can run the website 
 
 In order to preview your changes locally:
 
-1. Open the terminal with ⌘+\` or CTRL+\` or by clicking `View > Terminal`.
+1. Open the terminal with <Kbd keys={["command"]}>\`</Kbd> or <Kbd keys={["ctrl"]}>\`</Kbd> or by clicking `View > Terminal`.
 2. Run the command `pnpm i{:bash}` in the terminal.
     - This will install all the dependencies the project needs.
 3. Run the command `pnpm run dev{:bash}` in the terminal
@@ -109,7 +110,7 @@ In order to preview your changes locally:
 
 ![terminal-server](/doc-tutorial/terminal-server.png)
 
-4. Access the website at http://localhost:3000/ (or CTRL+CLICK on the link in your terminal) in your browser.
+4. Access the website at http://localhost:3000/ in your browser.
    - The website will compile each page as it is required, so it may take a while to go to new pages, you should be able to see what the website is doing in the terminal.
    - When you change a file, and save it, the website should automatically refresh (after it compiles again).
 
