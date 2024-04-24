@@ -1,4 +1,7 @@
 {
     "mdx.server.enable": true,
-    "mdx.validate.validateFileLinks": "hint"
+    "mdx.validate.validateFileLinks": "hint",
+    "cSpell.words": [
+        "Tuffy"
+    ]
 }
