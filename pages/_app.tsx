@@ -1,10 +1,8 @@
 import '../output.css';
+import { useState, useEffect } from 'react'
 import { NextUIProvider } from '@nextui-org/react'
-import { customMDX } from './mdx-components'
-import type { MDXComponents } from 'mdx/types'
-import { Image, ImageProps } from '@nextui-org/react'
+import { Image } from '@nextui-org/react'
 import NextImage from 'next/image'
-import getComponents from 'nextra-theme-docs/'
 import { StrictMode } from 'react'
 
 export default function MyApp({ Component, pageProps }) {
@@ -15,4 +13,32 @@ export default function MyApp({ Component, pageProps }) {
             </NextUIProvider>
         </StrictMode>
     )
+}
+
+
+const customMDX = {
+    img: (props: { alt: string, src: { src: string, width: number, height: number } }) => {
+
+        const [img, setImg] = useState(<></>)
+        useEffect(() => {
+            const imgDiv =
+                // @ts-ignore idk why it says align doesn't exist.
+                <div align="center">
+                    <Image
+                        radius='lg'
+                        isBlurred
+                        as={NextImage}
+                        alt={props.alt}
+                        src={props.src.src}
+                        width={props.src.width}
+                        height={props.src.height}
+                    />
+                </div>
+
+            setImg(imgDiv);
+
+        }, [])
+
+        return img;
+    }
 }
