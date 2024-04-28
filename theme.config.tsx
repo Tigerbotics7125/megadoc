@@ -57,6 +57,9 @@ const config: DocsThemeConfig = {
         return <>{title}</>
     }
   },
+  toc: {
+    backToTop: true
+  },
   feedback: {
     content: "Give feedback for this page →"
   },

@@ -21,9 +21,7 @@ const customMDX = {
 
         const [img, setImg] = useState(<></>)
         useEffect(() => {
-            const imgDiv =
-                // @ts-ignore idk why it says align doesn't exist.
-                <div align="center">
+            const imgComp =
                     <Image
                         radius='lg'
                         isBlurred
@@ -33,9 +31,7 @@ const customMDX = {
                         width={props.src.width}
                         height={props.src.height}
                     />
-                </div>
-
-            setImg(imgDiv);
+            setImg(imgComp);
 
         }, [])
 

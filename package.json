@@ -6,10 +6,7 @@
     "dev": "concurrently --kill-others --names \"tailwindcss,next dev\" \"pnpm run tailwindcss-dev\" \"pnpm run next-dev\"",
     "tailwindcss-dev": "npx tailwindcss -i input.css -o output.css --watch",
     "next-dev": "next dev",
-    "new-build": "npx tailwindcss -i input.css -o output.css && next build",
-    "build": "concurrently --kill-others-on-fail --names \"tailwindcss,next build\" \"pnpm run tailwindcss-build\" \"pnpm run next-build\"",
-    "tailwindcss-build": "npx tailwindcss -i input.css -o output.css",
-    "next-build": "next build"
+    "build": "npx tailwindcss -i input.css -o output.css && next build"
   },
   "repository": {
     "type": "git",

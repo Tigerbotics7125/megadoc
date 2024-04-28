@@ -3127,7 +3127,7 @@ video {
   --nextui-foreground: 201.81999999999994 24.44% 8.82%;
   --nextui-divider: 0 0% 6.67%;
   --nextui-divider-opacity: 0.15;
-  --nextui-focus: 212.01999999999998 100% 46.67%;
+  --nextui-focus: 9.759999999999991 100% 59.02%;
   --nextui-overlay: 0 0% 0%;
   --nextui-content1: 0 0% 100%;
   --nextui-content1-foreground: 201.81999999999994 24.44% 8.82%;
@@ -3159,8 +3159,8 @@ video {
   --nextui-primary-700: 212.24 100% 28.82%;
   --nextui-primary-800: 211.84000000000003 100% 19.22%;
   --nextui-primary-900: 211.84000000000003 100% 9.61%;
-  --nextui-primary-foreground: 0 0% 100%;
-  --nextui-primary: 212.01999999999998 100% 46.67%;
+  --nextui-primary-foreground: 0 0% 0%;
+  --nextui-primary: 9.759999999999991 100% 59.02%;
   --nextui-secondary-50: 270 61.54% 94.9%;
   --nextui-secondary-100: 270 59.26% 89.41%;
   --nextui-secondary-200: 270 59.26% 78.82%;
@@ -3245,7 +3245,7 @@ video {
   --nextui-foreground-800: 240 4.76% 95.88%;
   --nextui-foreground-900: 0 0% 98.04%;
   --nextui-foreground: 210 5.56% 92.94%;
-  --nextui-focus: 212.01999999999998 100% 46.67%;
+  --nextui-focus: 9.759999999999991 100% 59.02%;
   --nextui-overlay: 0 0% 0%;
   --nextui-divider: 0 0% 100%;
   --nextui-divider-opacity: 0.15;
@@ -3280,7 +3280,7 @@ video {
   --nextui-primary-800: 211.84000000000003 92.45% 89.61%;
   --nextui-primary-900: 212.5 92.31% 94.9%;
   --nextui-primary-foreground: 0 0% 100%;
-  --nextui-primary: 212.01999999999998 100% 46.67%;
+  --nextui-primary: 9.759999999999991 100% 59.02%;
   --nextui-secondary-50: 270 66.67% 9.41%;
   --nextui-secondary-100: 270 66.67% 18.82%;
   --nextui-secondary-200: 270 66.67% 28.24%;
@@ -3480,6 +3480,13 @@ video {
 
 body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
 }
 
 .placeholder\:text-danger::-moz-placeholder {

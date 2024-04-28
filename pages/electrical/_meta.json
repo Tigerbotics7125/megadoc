@@ -1,3 +1,11 @@
 {
-    "ferrules": ""
+    "--- Electrical": {
+        "type": "separator",
+        "title": "Electrical"
+    },
+    "crimps": "Crimps & Connectors",
+    "--- Pneumatic": {
+        "type": "separator",
+        "title": "Pneumatic"
+    }
 }
