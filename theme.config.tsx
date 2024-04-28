@@ -22,17 +22,14 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter();
     return (
       <>
-
         <link rel="icon" href="/favicon-32x32.png" />
-
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="og:url" content={"https://tigerbotics.aurorabotics.com" + asPath} />
-        <meta property="twitter:image" content="/tigerbotics-hexagons.png" />
-        <meta property="og:image" content="/tigerbotics-hexagons.png" />
-        {/* <meta content="Tigerbotic's collective knowledge database." property="og:description" /> */}
-        <meta property="og:description" content={frontMatter.description || "Tigerbotic's collective knowledge database."} />
+        <meta property="twitter:image" content="/tigerbotics-banner.png" />
+        <meta property="og:image" content="/tigerbotics-banner.png" />
+        <meta property="og:description" content={frontMatter.description || "Tigerbotics - Building Bots, Engineering Futures."} />
         <meta property="theme-color" content="#EE4B2B" data-react-helmet="true" />
       </>
     );
@@ -42,7 +39,7 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/tigerbotics7125/megadoc/tree/main',
   logo: (
     <div style={{ margin: "0, .5em, .5em, .5em" }}>
-      <Image src="/Tigerbotics_Text.svg" alt="Logo" width={325} height={50} />
+      <Image src="/tigerbotics-text.svg" alt="Logo" width={325} height={50} />
     </div>
   ),
   sidebar: {
@@ -59,6 +56,9 @@ const config: DocsThemeConfig = {
       else
         return <>{title}</>
     }
+  },
+  toc: {
+    backToTop: true
   },
   feedback: {
     content: "Give feedback for this page →"

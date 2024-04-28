@@ -3,14 +3,10 @@ authors: Jeffrey Morris
 ---
 # Electrical Glossary
 
+import ItemCard from '../components/card'
+import CardGallery from '../components/cardGallery'
 
-import { Cards, Card } from 'nextra/components'
-import Image from 'next/image'
+<CardGallery>
+    <ItemCard img="/electrical/crimps/ferrule/12awg.png" name="Wire Ferrules" link='electrical/crimps/ferrules' />
+</CardGallery>
 
-
-
-
-
-<Cards>
-    <Card icon={<Image src="/electrical/20awg-ferrule.jpg" width={150} height={150} />} title="Ferrules" arrow={true} href="electrical/ferrules" />
-</Cards>
